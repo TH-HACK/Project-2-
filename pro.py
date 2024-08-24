@@ -1,5 +1,18 @@
-import telegram
+import sys
+import subprocess
+import time
 import os
+import base64
+from concurrent.futures import ThreadPoolExecutor
+from threading import Thread
+
+try:
+    import telebot, pyfiglet, requests 
+except ImportError:
+    subprocess.check_call([sys.executable, "-m", "pip", "install", "pyTelegramBotAPI", 'pyfiglet', 'requests'])
+    import telebot
+    import pyfiglet
+    import requests
 
 # استبدل 'your_bot_token' بـ Token بوتك
 bot = telegram.Bot(token='7054926619:AAGToMYtg4lsg17fVmIkICgZ_ApMI0TSneU')
