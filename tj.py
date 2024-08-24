@@ -1,4 +1,5 @@
 import sys
+import bs4
 import subprocess
 import time
 import os
@@ -13,6 +14,7 @@ except ImportError:
     import telebot
     import pyfiglet
     import requests 
+	os.system('pip install bs4')
 
 # Print the welcome message
 ab = pyfiglet.figlet_format("OTH")
